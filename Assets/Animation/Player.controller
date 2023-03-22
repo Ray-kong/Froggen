@@ -112,7 +112,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 6
     m_ConditionEvent: state
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -432,7 +432,7 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6807065878505727609}
-    m_Position: {x: 520, y: 120, z: 0}
+    m_Position: {x: 560, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5770689651604153869}
     m_Position: {x: 520, y: 0, z: 0}
