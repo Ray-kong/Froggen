@@ -12,15 +12,17 @@ public class MovingObject : MonoBehaviour
 
     // type is one of the following:
     // Track: object on a track, moves back and forth (such as buzzsaw)
-    // Falling: object that falls once and stays in the scene (such as anvil)
+    // Falling: object that falls once and stays in the scene. This is always triggered (such as anvil)
     // Loop: object that falls, disappears, and falls again along the same path (such as wrench)
     public string type;
+    // States whether the object needs a trigger to move. If true, then it must have a collider with a trigger as a child
+    public bool needsTrigger;
 
     private float posX;
     private float posY;
     private float startX;
     private float startY;
-    private bool falling;
+    private bool isTriggered;
 
     void Start()
     {
@@ -28,48 +30,57 @@ public class MovingObject : MonoBehaviour
         posY = GetComponent<Rigidbody2D>().position.y;
         startX = GetComponent<Rigidbody2D>().position.x;
         startY = GetComponent<Rigidbody2D>().position.y;
-        falling = false;
+        isTriggered = !needsTrigger;
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (type.Equals("Track"))
+        if (needsTrigger)
         {
-            if ((endX > 0 && ((posX < startX && velocityX < 0) || (posX > endX + startX && velocityX > 0)))
-               || (endX < 0 && ((posX > startX && velocityX > 0) || (posX < endX + startX && velocityX < 0))))
-            {
-                velocityX = -1 * velocityX;
-            }
-            if ((endY > 0 && ((posY < startY && velocityY < 0) || (posY > endY + startY && velocityY > 0)))
-               || (endY < 0 && ((posY > startY && velocityY > 0) || (posY < endY + startY && velocityY < 0))))
-            {
-                velocityY = -1 * velocityY;
-            }
-            GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
-            posX = GetComponent<Rigidbody2D>().position.x;
-            posY = GetComponent<Rigidbody2D>().position.y;
+            isTriggered = GetComponentInChildren<TriggeredObject>().isTriggerSetOff();
         }
 
-        if (type.Equals("Falling"))
+        if (isTriggered)
         {
-            if (GetComponentInChildren<TriggeredObject>().isTriggerSetOff())
+            if (type.Equals("Track"))
             {
-                GetComponent<Rigidbody2D>().gravityScale = 2;
-            }    
-        }
-
-        if (type.Equals("Loop"))
-        {
-            if ((endX > 0 && posX > endX + startX) || (endX < 0 && posX < endX + startX)
-               || (endY > 0 && posY > endY + startY) || (endY < 0 && posY < endY + startY))
-            {
-                GetComponent<Transform>().position = new Vector3(startX, startY, 0);
+                if ((endX > 0 && ((posX < startX && velocityX < 0) || (posX > endX + startX && velocityX > 0)))
+                   || (endX < 0 && ((posX > startX && velocityX > 0) || (posX < endX + startX && velocityX < 0))))
+                {
+                    velocityX = -1 * velocityX;
+                }
+                if ((endY > 0 && ((posY < startY && velocityY < 0) || (posY > endY + startY && velocityY > 0)))
+                   || (endY < 0 && ((posY > startY && velocityY > 0) || (posY < endY + startY && velocityY < 0))))
+                {
+                    velocityY = -1 * velocityY;
+                }
+                GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
+                posX = GetComponent<Rigidbody2D>().position.x;
+                posY = GetComponent<Rigidbody2D>().position.y;
             }
-            GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
-            posX = GetComponent<Rigidbody2D>().position.x;
-            posY = GetComponent<Rigidbody2D>().position.y;
+
+            if (type.Equals("Falling"))
+            {
+             //   if (GetComponentInChildren<TriggeredObject>().isTriggerSetOff())
+               // {
+                    GetComponent<Rigidbody2D>().gravityScale = 2;
+               // }
+            }
+
+            if (type.Equals("Loop"))
+            {
+                if ((endX > 0 && posX > endX + startX) || (endX < 0 && posX < endX + startX)
+                   || (endY > 0 && posY > endY + startY) || (endY < 0 && posY < endY + startY))
+                {
+                    GetComponent<Transform>().position = new Vector3(startX, startY, 0);
+                }
+                GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
+                posX = GetComponent<Rigidbody2D>().position.x;
+                posY = GetComponent<Rigidbody2D>().position.y;
+            }
         }
 
 
