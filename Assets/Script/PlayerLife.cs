@@ -22,6 +22,18 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("death"))
+        {
+            Die();
+        }
+        if (collider.gameObject.CompareTag("trigger"))
+        {
+            collider.gameObject.GetComponent<TriggeredObject>().TriggerSetOff();
+        }
+    }
+
     private void Die()
     {
         anim.SetTrigger("death");

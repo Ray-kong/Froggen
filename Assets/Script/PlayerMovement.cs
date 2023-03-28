@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     [SerializeField] private LayerMask JumpableGround;
 
+    private bool canDoubleJump;
     private float dirX;
     //set jump and speed to public in case we might change this in future levels
     public float jump;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        canDoubleJump = false;
         
     }
 
@@ -31,10 +33,11 @@ public class PlayerMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
-        if(Input.GetButtonDown("Jump") && IsGrounded())
+        if(Input.GetButtonDown("Jump") && (IsGrounded() || canDoubleJump))
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
-        }
+            canDoubleJump = false;
+        } 
         UpdateAnimationState();
     }
 
@@ -69,4 +72,10 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded() {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, JumpableGround);
     }
+
+    public void CanDoubleJump()
+    {
+        canDoubleJump = true;
+    }
+
 }
