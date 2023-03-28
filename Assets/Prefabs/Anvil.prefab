@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8480590795056568481}
   - component: {fileID: 3265615097456839209}
   m_Layer: 0
-  m_Name: Triggered Anvil
+  m_Name: Anvil
   m_TagString: death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +222,7 @@ MonoBehaviour:
   velocityX: 0
   velocityY: 0
   type: Falling
+  needsTrigger: 0
 --- !u!114 &3265615097456839209
 MonoBehaviour:
   m_ObjectHideFlags: 0
