@@ -64,10 +64,10 @@ public class MovingObject : MonoBehaviour
 
             if (type.Equals("Falling"))
             {
-             //   if (GetComponentInChildren<TriggeredObject>().isTriggerSetOff())
-               // {
-                    GetComponent<Rigidbody2D>().gravityScale = 2;
-               // }
+                //   if (GetComponentInChildren<TriggeredObject>().isTriggerSetOff())
+                // {
+                GetComponent<Rigidbody2D>().gravityScale = 2;
+                // }
             }
 
             if (type.Equals("Loop"))

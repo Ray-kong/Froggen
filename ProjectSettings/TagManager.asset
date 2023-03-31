@@ -9,6 +9,7 @@ TagManager:
   - Lilypad
   - trigger
   - Ground
+  - checkpoint
   layers:
   - Default
   - TransparentFX
