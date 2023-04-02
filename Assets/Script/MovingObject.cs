@@ -66,8 +66,26 @@ public class MovingObject : MonoBehaviour
             {
                 //   if (GetComponentInChildren<TriggeredObject>().isTriggerSetOff())
                 // {
-                GetComponent<Rigidbody2D>().gravityScale = 2;
+                // transform.position = Vector3.
                 // }
+
+                if ((endY > 0 && posY > endY + startY) || (endY < 0 && posY < endY + startY))
+                    //|| (endY > 0 && posY > endY + startY) || (endY < 0 && posY < endY + startY))
+                {
+                   // GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                    transform.gameObject.tag = "Untagged";
+                    transform.gameObject.layer = 8;
+                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+                } else
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
+                    posX = GetComponent<Rigidbody2D>().position.x;
+                    posY = GetComponent<Rigidbody2D>().position.y;
+                }
+
+
+
             }
 
             if (type.Equals("Loop"))
