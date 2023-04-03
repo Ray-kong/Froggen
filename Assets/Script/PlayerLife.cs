@@ -9,6 +9,8 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D co;
     private Vector2 cp;
+
+    //public ArrayList anvils;
     // Start is called before the first frame update
     private void Start()
     {
