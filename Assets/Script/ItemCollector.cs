@@ -15,7 +15,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             score++;
             Debug.Log("score: " + score);
-            ScoreText.text = "Score: " + score;
+            ScoreText.text = "score: " + score;
         }
     }
 

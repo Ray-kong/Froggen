@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 4764668608625611393}
   - component: {fileID: 4764668608625611392}
   - component: {fileID: 4764668608625611398}
-  - component: {fileID: 4764668608625611399}
   - component: {fileID: 4764668608625611396}
+  - component: {fileID: 5625830220123836766}
   m_Layer: 0
   m_Name: Saw
   m_TagString: death
@@ -208,32 +208,6 @@ MonoBehaviour:
   - {fileID: 4764668607995616445}
   - {fileID: 4764668608149418786}
   speed: 2
---- !u!61 &4764668608625611399
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764668608625611394}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.010707974}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.375, y: 2.375}
-    newSize: {x: 2.375, y: 2.375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9895935, y: 1.9252548}
-  m_EdgeRadius: 0
 --- !u!114 &4764668608625611396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,3 +221,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+--- !u!58 &5625830220123836766
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764668608625611394}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1875
