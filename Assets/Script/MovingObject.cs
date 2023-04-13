@@ -17,6 +17,7 @@ public class MovingObject : MonoBehaviour
     public string type;
     // States whether the object needs a trigger to move. If true, then it must have a collider with a trigger as a child
     public bool needsTrigger;
+    public bool rotate;
 
     private float posX;
     private float posY;
@@ -43,8 +44,14 @@ public class MovingObject : MonoBehaviour
             isTriggered = GetComponentInChildren<TriggeredObject>().isTriggerSetOff();
         }
 
+
+
         if (isTriggered)
         {
+            if (rotate)
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().rotation += 1;
+            }
             if (type.Equals("Track"))
             {
                 if ((endX > 0 && ((posX < startX && velocityX < 0) || (posX > endX + startX && velocityX > 0)))
@@ -76,13 +83,13 @@ public class MovingObject : MonoBehaviour
                     transform.gameObject.tag = "Untagged";
                     transform.gameObject.layer = 8;
                     GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-
                 } else
                 {
                     GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
                     posX = GetComponent<Rigidbody2D>().position.x;
                     posY = GetComponent<Rigidbody2D>().position.y;
                 }
+
 
 
 
