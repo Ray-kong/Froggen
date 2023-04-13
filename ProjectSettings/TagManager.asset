@@ -50,6 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 3573864821
     locked: 0
+  - name: mountain
+    uniqueID: 4225043609
+    locked: 0
   - name: Backgound Objects
     uniqueID: 3451685223
     locked: 0
