@@ -28,6 +28,5 @@ public class CameraController : MonoBehaviour
             OrthographicCamera.orthographicSize = 6;
             transform.position = new Vector3(player.position.x, player.position.y + 1.5f, transform.position.z);
         }
-
     }
 }
