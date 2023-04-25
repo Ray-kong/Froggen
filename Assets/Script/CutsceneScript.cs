@@ -41,7 +41,8 @@ public class CutsceneScript : MonoBehaviour
         {
             player.gameObject.SetActive(true);
             music.gameObject.SetActive(true);
-            score.transform.GetChild(0).gameObject.SetActive(true);
+  //          score.transform.GetChild(0).gameObject.SetActive(true);
+            score.transform.GetChild(1).gameObject.SetActive(false);
             escText.gameObject.SetActive(false);
             gameObject.SetActive(false);
             music.GetComponent<AudioSource>().Play();
