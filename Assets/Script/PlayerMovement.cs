@@ -39,6 +39,21 @@ public class PlayerMovement : MonoBehaviour
             canDoubleJump = false;
         } 
         UpdateAnimationState();
+
+        if (canDoubleJump)
+        {
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+        }
+        else 
+        {
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
+        }
+        if (IsGrounded())
+        {
+            canDoubleJump = false;
+        }
     }
 
     private void UpdateAnimationState()
@@ -76,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
     public void CanDoubleJump()
     {
         canDoubleJump = true;
+    }
+
+    public void CantDoubleJump()
+    {
+        canDoubleJump = false;
     }
 
 }

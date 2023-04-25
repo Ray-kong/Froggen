@@ -55,6 +55,7 @@ public class PlayerLife : MonoBehaviour
 
     public void Die()
     {
+        this.GetComponent<PlayerMovement>().CantDoubleJump();
         anim.SetTrigger("death");
         co.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
