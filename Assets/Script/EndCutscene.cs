@@ -15,6 +15,7 @@ public class EndCutscene : MonoBehaviour
     void Start()
     {
         videoStarted = false;
+        vp.url = Application.streamingAssetsPath + "/" + "end_scene.mp4";
     }
 
 

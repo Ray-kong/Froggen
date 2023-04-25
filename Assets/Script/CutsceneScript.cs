@@ -18,6 +18,9 @@ public class CutsceneScript : MonoBehaviour
     {
         vp = this.GetComponent<UnityEngine.Video.VideoPlayer>();
         videoStarted = false;
+        vp.url = Application.streamingAssetsPath + "/" + "intro_scene.mp4";
+        vp.Prepare();
+        vp.Play();
       //  as = music.gameObject.GetComponent<AudioSource>();
     }
 
@@ -26,7 +29,7 @@ public class CutsceneScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("s"))
         {
             vp.Pause();
         }
@@ -38,7 +41,7 @@ public class CutsceneScript : MonoBehaviour
         {
             player.gameObject.SetActive(true);
             music.gameObject.SetActive(true);
-            score.gameObject.SetActive(true);
+            score.transform.GetChild(0).gameObject.SetActive(true);
             escText.gameObject.SetActive(false);
             gameObject.SetActive(false);
             music.GetComponent<AudioSource>().Play();
