@@ -7,7 +7,7 @@ Welcome to the official GitHub repository for **Froggen**, our final project for
 ## Team Members
 This game is the result of collaborative efforts by a team of dedicated and talented students:
 
-- **Ray Kong**: Unity Development and Programming
+- **Ray Kong**: Project Manager, Head Unity Developer, and Head Programmer
 - **Nathan Barth**: Original Art and Ending Cutscene
 - **Giovanni Assad**: Music Composition
 - **Patrick Yu**: Narrative and Intro Cutscene
@@ -20,15 +20,12 @@ Our immersive experience is brought to life by the talented **Sean Robinson**, w
 ## Assets 
 While much of our game is built with original assets, we've also utilized some external assets to enhance the gaming experience:
 
-- Non-original art assets by **Pixel Frog** from the [Unity Asset Store](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
+- Non-original art assets by **Pixel Adventure 1** from the [Unity Asset Store](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
 - Intro music and sound effects sourced from [FreeSound](https://freesound.org/browse/)
 - Intro stock images courtesy of **iStock** and **Dreamstime**
 
 ## Special Mention
 We would like to extend our gratitude towards **Professor Fox Zarow** for their guidance and support during the creation of this game.
-
-## Repository Link
-Feel free to explore the codes and assets of our game on [GitHub](https://github.com/Ray-kong/Froggen)
 
 ## Feedback
 We appreciate your feedback! Feel free to create an issue if you find a bug, or if you have any suggestions to improve the game. Your input can help us learn and grow!
